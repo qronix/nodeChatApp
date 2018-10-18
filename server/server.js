@@ -15,9 +15,16 @@ app.use(express.static(publicPath));
 io.on('connection',(socket)=>{
     console.log('New user connected!');
 
+    socket.emit('newMessage',{to:'jimmy',from:'billpaxton',text:'supppp breeh'});
+
+    socket.on('createMessage',(message)=>{
+        console.log(message);
+    });
+
     socket.on('disconnect',(socket)=>{
         console.log('That shit was closed!');
-    })
+    });
+
 });
 
 server.listen(port,()=>{
