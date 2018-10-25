@@ -23,6 +23,10 @@ class Users{
         var userNames = users.map((user)=>user.name);
         return userNames;
     }
+    getUserRoom(id){
+        var room = this.users.filter((user)=>user.id===id)[0].room;
+        return room;
+    }
 }
 
 module.exports={
